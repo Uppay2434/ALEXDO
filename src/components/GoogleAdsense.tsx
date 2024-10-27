@@ -12,9 +12,7 @@ declare global {
 const GoogleAdsense = () => {
   useEffect(() => {
     try {
-      if (typeof window !== 'undefined') {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      }
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (err) {
       console.error('AdSense error:', err);
     }
@@ -22,16 +20,15 @@ const GoogleAdsense = () => {
 
   return (
     <>
+      {/* Google AdSense Script */}
       <Script
-        async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4157952107930888"
+        strategy="afterInteractive"
         crossOrigin="anonymous"
-        strategy="lazyOnload"
-        onError={(e) => {
-          console.error('Script failed to load', e);
-        }}
       />
-      <ins
+      
+      {/* Square Ad Unit */}
+      <ins 
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-4157952107930888"
